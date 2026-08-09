@@ -1,0 +1,14 @@
+{
+  "name": "海岸线 · 深圳沿海骑行",
+  "short_name": "海岸线",
+  "description": "深圳沿海骑行路线规划与记录",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a84ff",
+  "theme_color": "#0a84ff",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

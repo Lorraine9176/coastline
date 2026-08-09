@@ -1,0 +1,6 @@
+.workbuddy/
+node_modules/
+tests/
+package.json
+__pycache__/
+.DS_Store

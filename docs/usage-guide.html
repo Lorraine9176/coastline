@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>海岸线 · 使用说明</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --ink: #1c1c1e; --sub: #6b7280;
+    --line: #e5e7eb; --brand: #34c759; --blue: #0a84ff; --red: #ff3b30;
+    --radius: 14px; --shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 24px 18px 80px; }
+  header.hero {
+    background: linear-gradient(135deg, #34c759, #0a84ff);
+    color: #fff; border-radius: var(--radius); padding: 28px 24px; margin-bottom: 22px;
+  }
+  header.hero h1 { margin: 0 0 6px; font-size: 26px; }
+  header.hero p { margin: 0; opacity: .92; font-size: 15px; }
+  h2 { font-size: 20px; margin: 34px 0 12px; padding-left: 10px; border-left: 4px solid var(--brand); }
+  h3 { font-size: 16px; margin: 22px 0 8px; color: var(--ink); }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 20px; margin: 14px 0; box-shadow: var(--shadow);
+  }
+  .card p { margin: 8px 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .tile {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px; text-align: center; box-shadow: var(--shadow);
+  }
+  .tile .ico { font-size: 28px; }
+  .tile .t { font-weight: 600; margin-top: 6px; }
+  .tile .d { font-size: 12px; color: var(--sub); margin-top: 4px; }
+  ol, ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  code {
+    background: #eef1f4; padding: 2px 6px; border-radius: 6px; font-size: 13px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+  }
+  .tag {
+    display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px;
+    background: #eafaf0; color: #1a7f37; border: 1px solid #b7ebc6; margin-right: 6px;
+  }
+  .tag.no { background: #fdeaea; color: #b42318; border-color: #f5c2c0; }
+  .tag.soon { background: #fff7e6; color: #b45309; border-color: #fde68a; }
+  .step {
+    display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed var(--line);
+  }
+  .step:last-child { border-bottom: 0; }
+  .step .n {
+    flex: 0 0 28px; height: 28px; border-radius: 50%; background: var(--brand); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;
+  }
+  .note {
+    background: #fff8e6; border: 1px solid #fde68a; border-radius: 10px;
+    padding: 12px 14px; font-size: 14px; color: #7a5b00; margin: 12px 0;
+  }
+  .matrix { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .matrix th, .matrix td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .matrix th { background: #f0f2f5; font-weight: 600; }
+  .matrix td:first-child { font-weight: 600; }
+  footer { color: var(--sub); font-size: 13px; text-align: center; margin-top: 40px; }
+  a { color: var(--blue); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>海岸线 · 使用说明</h1>
+    <p>深圳沿海骑行规划与记录 · 移动端优先 · 当前版本：MVP Demo（2026-08-09）</p>
+  </header>
+
+  <div class="card">
+    <p><strong>一句话定位：</strong>一个能在手机上打开的网页 App，帮你<strong>规划深圳沿海骑行路线</strong>，并<strong>用 GPS 记录每次骑行的时长、轨迹和次数</strong>。数据存在你自己的手机里，不上传服务器。</p>
+    <p>底部有 4 个标签：<span class="tag">规划</span><span class="tag">记录</span><span class="tag">历史</span><span class="tag">我的</span>。完整的使用循环就是「规划 → 骑行 → 回看」。</p>
+  </div>
+
+  <h2>一、3 步快速上手</h2>
+  <div class="card">
+    <div class="step"><div class="n">1</div><div><strong>规划一条路线</strong><br>在「规划」页点一条经典沿海路线卡片，或点「＋ 自定义规划路线」自己在地图上点起点、终点来生成路线。可选<strong>贴海</strong>或<strong>最短</strong>两种偏好。</div></div>
+    <div class="step"><div class="n">2</div><div><strong>开始骑行记录</strong><br>在路线页点「开始骑行」进入「记录」页，点红色「开始骑行」按钮。手机会请求定位权限——授权后，地图会跟着你走，实时显示里程、计时和速度。</div></div>
+    <div class="step"><div class="n">3</div><div><strong>结束并回看</strong><br>骑完点「结束骑行」，记录自动保存。到「历史」页能看每一次骑行的轨迹回放；到「我的」页能看累计次数、里程、时长和最快均速。</div></div>
+  </div>
+
+  <div class="note">📌 每次骑行都需要<strong>授权定位权限</strong>，并且<strong>保持手机屏幕亮着</strong>（锁屏后 GPS 可能暂停）。信号差或忘开定位时，可在「历史」页用「手动补录」补救。</div>
+
+  <h2>二、功能清单（当前已能用的）</h2>
+
+  <div class="grid">
+    <div class="tile"><div class="ico">🗺️</div><div class="t">路线规划</div><div class="d">预设 + 自定义</div></div>
+    <div class="tile"><div class="ico">🚴</div><div class="t">GPS 记录</div><div class="d">里程/时长/速度</div></div>
+    <div class="tile"><div class="ico">📜</div><div class="t">历史回放</div><div class="d">轨迹 + 列表</div></div>
+    <div class="tile"><div class="ico">📊</div><div class="t">统计看板</div><div class="d">次数/里程/均速</div></div>
+    <div class="tile"><div class="ico">⚓</div><div class="t">难度评级</div><div class="d">按距离自动评</div></div>
+    <div class="tile"><div class="ico">📲</div><div class="t">可加主屏</div><div class="d">PWA 离线壳</div></div>
+  </div>
+
+  <h3>规划页（🗺️ 首页）</h3>
+  <div class="card">
+    <ul>
+      <li><strong>经典沿海路线库</strong>：内置 4 条深圳沿海预设路线（深圳湾、盐田、大鹏、蛇口），卡片显示距离、预计用时与难度。</li>
+      <li><strong>地图预览</strong>：首页小地图会画出这些路线；首次打开会用高德骑行规划算出<strong>真实轨迹并缓存</strong>（规划失败则回退近似线）。</li>
+      <li><strong>＋ 自定义规划路线</strong>：进入规划页，在地图上<strong>点一下设起点、再点一下设终点</strong>，选「最短」或「沿海·骑行道优先」，点「规划」即可生成骑行路线与距离/用时。</li>
+      <li><strong>保存我的路线</strong>：预设详情或自定义规划结果都能「保存为我的路线」，存到规划页下方的「我的路线」列表。</li>
+    </ul>
+  </div>
+
+  <h3>记录页（🚴）</h3>
+  <div class="card">
+    <ul>
+      <li><strong>实时 GPS 轨迹</strong>：点「开始骑行」后持续采集定位，地图实时跟随并画出红色轨迹。</li>
+      <li><strong>实时数据</strong>：里程（km）、计时、当前均速（km/h）随骑行更新。</li>
+      <li><strong>结束保存</strong>：点「结束骑行」自动算好并存入「历史」。从某条路线进入时，记录会关联该路线名称。</li>
+      <li><strong>手动补录</strong>（在「历史」页）：没开定位或信号差时，选一条预设路线 + 填骑行分钟数，照样能记一条记录。</li>
+    </ul>
+  </div>
+
+  <h3>历史页（📜）</h3>
+  <div class="card">
+    <ul>
+      <li><strong>骑行列表</strong>：按时间倒序，显示路线名、日期、来源（GPS / 手动）、里程与时长。</li>
+      <li><strong>轨迹回放</strong>：点任意一条记录，地图展示那次骑行的完整轨迹和均速。</li>
+    </ul>
+  </div>
+
+  <h3>我的页（👤）</h3>
+  <div class="card">
+    <ul>
+      <li><strong>统计看板</strong>：骑行次数、累计里程、累计时长、最快均速，以及「最长一次」记录。</li>
+      <li><strong>清空本地记录</strong>：一键清除全部数据（不可恢复）。</li>
+      <li><strong>数据说明</strong>：所有记录仅存于本机浏览器（IndexedDB），清除缓存会丢失，换设备不互通。</li>
+    </ul>
+  </div>
+
+  <h2>三、和你的原始需求对照</h2>
+  <p class="card" style="font-size:14px;color:var(--sub)">你最初要的是：规划深圳沿海路线、记录骑行时长、记录骑行路线、记录骑行次数，其中"规划路线"是最主要的功能。下面逐条核对当前版本做到了没有。</p>
+  <table class="matrix">
+    <thead><tr><th>你的需求</th><th>当前状态</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>规划深圳沿海路线</td><td><span class="tag">已实现</span></td><td>4 条沿海预设 + 自定义规划；"贴海"是偏好，自定义起终点不强制沿海</td></tr>
+      <tr><td>记录骑行时长</td><td><span class="tag">已实现</span></td><td>GPS 计时 + 手动补录</td></tr>
+      <tr><td>记录骑行路线（轨迹）</td><td><span class="tag">已实现</span></td><td>GPS 轨迹 polyline 保存，可回放</td></tr>
+      <tr><td>记录骑行次数</td><td><span class="tag">已实现</span></td><td>历史列表 + 「我的」页次数统计</td></tr>
+      <tr><td>规划为主功能</td><td><span class="tag">已实现</span></td><td>首页即规划，为核心入口</td></tr>
+      <tr><td>实时转向导航（跟着走提示转弯）</td><td><span class="tag no">未做</span></td><td>按 MVP 计划后置；目前只规划+记录，不播报转向</td></tr>
+      <tr><td>跨设备 / 云端同步</td><td><span class="tag no">未做</span></td><td>按 MVP 计划本机存储；换手机记录不互通</td></tr>
+      <tr><td>应用内新手引导</td><td><span class="tag no">未做</span></td><td>这正是你现在的痛点——界面没有"怎么用"的提示</td></tr>
+    </tbody>
+  </table>
+
+  <h2>四、已知限制（用之前要知道）</h2>
+  <div class="card">
+    <ol>
+      <li><strong>没有"跟着走"的导航</strong>：规划好路线后，骑行时地图只是跟着你的 GPS 画轨迹，<strong>不会语音/箭头提示你该往哪拐</strong>。需要靠你自己看着地图骑。</li>
+      <li><strong>数据只在当前手机</strong>：清缓存、换手机、用无痕模式都会丢记录，且无法在多设备间同步。</li>
+      <li><strong>自定义"沿海"是软约束</strong>：自定义规划选「贴海」只是高德的一个路线偏好，不保证全程贴着海岸线；真正稳定的沿海路线是那 4 条预设。</li>
+      <li><strong>需要定位与亮屏</strong>：锁屏或系统杀后台会中断记录；户外信号弱处漂移较大（已做基础处理，但未做专业滤波）。</li>
+      <li><strong>高德 Key 写在网页里</strong>：个人 demo 阶段没问题，正式上线前需加域名白名单防盗刷（见 README）。</li>
+    </ol>
+  </div>
+
+  <h2>五、下一步可以做什么</h2>
+  <div class="card">
+    <ul>
+      <li><span class="tag soon">建议优先</span><strong>应用内新手引导</strong>：在首页加"怎么用"入口或首次进入的引导卡片，直接解决你"不知道怎么用"的痛点。</li>
+      <li><span class="tag soon">路线图</span><strong>实时转向导航</strong>：V1.1，把"规划好跟着骑"升级成真正导航。</li>
+      <li><span class="tag soon">路线图</span><strong>云端同步 + 账号</strong>：换手机也能看记录。</li>
+      <li><span class="tag soon">可选</span><strong>GPX 导入/导出、爬升数据、难度更精细评级</strong>：PRD 开放问题。</li>
+    </ul>
+  </div>
+
+  <div class="note">💡 这份文档描述的是<strong>当前代码的真实功能</strong>，不是计划。你可以打开 <code>http://localhost:8090</code>（手机同 WiFi 用电脑 IP:8090）逐项对照验证。</div>
+
+  <footer>海岸线 · 深圳沿海骑行助手 — 使用说明 v1（基于 2026-08-09 MVP Demo 实际代码生成）</footer>
+
+</div>
+</body>
+</html>
