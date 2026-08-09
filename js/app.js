@@ -1,13 +1,14 @@
 // 深圳沿海骑行助手 · 主应用（移动端 PWA，零构建）
-import { PRESETS, getPreset, ensurePresetRoutes } from './presets.js?v=10';
-import * as db from './db.js?v=10';
-import { loadAmap, createMap, drawRoute, planRiding } from './amap.js?v=10';
-import { startRecording } from './gps.js?v=10';
-import { startRouter, navigate } from './router.js?v=10';
+import { PRESETS, getPreset, ensurePresetRoutes } from './presets.js?v=11';
+import * as db from './db.js?v=11';
+import { loadAmap, createMap, drawRoute, planRiding } from './amap.js?v=11';
+import { startRecording } from './gps.js?v=11';
+import { initWxConfig } from './wechat.js?v=11';
+import { startRouter, navigate } from './router.js?v=11';
 import {
   haversine, trackLength, avgSpeed, aggregateStats, fmtDuration, fmtDateTime, rateDifficulty,
   routeCumDist, projectOnRoute, extractManeuvers,
-} from './geo.js?v=10';
+} from './geo.js?v=11';
 
 const app = document.getElementById('app');
 const tabbar = document.getElementById('tabbar');
@@ -844,5 +845,8 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   });
 }
+
+// 微信内自动初始化 JS-SDK 定位（普通浏览器/未配置时自动忽略，无副作用）。
+initWxConfig();
 
 startRouter(router);

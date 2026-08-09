@@ -1,8 +1,8 @@
 // 深圳沿海预设路线。
 // 每条含真实起终点，运行时用高德骑行规划算出真实 polyline 并固化缓存（PRD §3.2：
 // "预设 polyline 预先用高德算好并固化，避免每次实时算"）。polyline 仅作离线/规划失败兜底。
-import { planRiding } from './amap.js?v=10';
-import * as db from './db.js?v=10';
+import { planRiding } from './amap.js?v=11';
+import * as db from './db.js?v=11';
 
 export const PRESETS = [
   {

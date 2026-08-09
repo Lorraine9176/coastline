@@ -1,9 +1,14 @@
 // 实时 GPS 轨迹采集（自适应采样间隔）。
 // 依赖 geo.js 的 haversine 判断是否在移动，从而动态调整采样密度：
 //   移动中 3s 采样一次，近似静止 10s 一次，兼顾精度与耗电。
-import { haversine } from './geo.js?v=10';
+import { haversine } from './geo.js?v=11';
+import { isWechat, wxLocationAvailable, startWxRecording } from './wechat.js?v=11';
 
 export function startRecording({ onPoint, onTick } = {}) {
+  // 微信内且 JS-SDK 已就绪时走微信定位（最稳）；否则走浏览器 geolocation（默认）。
+  if (isWechat() && wxLocationAvailable()) {
+    return startWxRecording({ onPoint, onTick });
+  }
   let points = [];
   let timer = null;
   let interval = 3000;

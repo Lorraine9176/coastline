@@ -1,8 +1,8 @@
 // 高德地图封装：加载、建图、绘线、骑行规划。
 // 坐标内部统一 [lng, lat]，与高德原生一致。
-import { AMAP_KEY, AMAP_SECURITY, DEFAULT_CENTER, DEFAULT_ZOOM } from './config.js?v=10';
-import { pickCorridorWaypoint } from './corridor.js?v=10';
-import { routeToCoords } from './parse.js?v=10';
+import { AMAP_KEY, AMAP_SECURITY, DEFAULT_CENTER, DEFAULT_ZOOM } from './config.js?v=11';
+import { pickCorridorWaypoint } from './corridor.js?v=11';
+import { routeToCoords } from './parse.js?v=11';
 
 let _promise = null;
 
